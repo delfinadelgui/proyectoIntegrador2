@@ -1,0 +1,226 @@
+let jugadores = {
+    lista: [
+       { 
+           nombre: "Paulo Bruno Exequiel",
+           apellido: "Dybala",
+           edad: "28",
+           nacimiento: "15/11/1993",
+           nacionalidad: "argentina", 
+           club: "Juventus",
+           carrera: "Instituo Central de Cordoba(2011-2012); Palermo(2012-2015); Juventus(2015-2022)",
+           fisico: "Mide 1,77m y pesa 77kg",
+           valorDeMercado: "50 millones de euros",
+
+       },
+       { 
+        nombre: "Lionel Andres",
+        apellido: "Messi",
+        edad: "34",
+        nacimiento: "24/6/1987",
+        nacionalidad: "argentina", 
+        club: "PSG",
+        carrera: "Newells(1995-2000); FC Barcelona(2004-2021); PSG(2022)",
+        fisico: "",
+        valorDeMercado: "",
+
+    },
+    { 
+        nombre: "",
+        apellido: "",
+        edad: "",
+        nacionalidad: "", 
+        club: "",
+        carrera: "",
+        fisico: "",
+        valorDeMercado: "",
+
+    },
+    { 
+        nombre: "",
+        apellido: "",
+        edad: "",
+        nacionalidad: "", 
+        club: "",
+        carrera: "",
+        fisico: "",
+        valorDeMercado: "",
+
+    },
+    { 
+        nombre: "",
+        apellido: "",
+        edad: "",
+        nacionalidad: "", 
+        club: "",
+        carrera: "",
+        fisico: "",
+        valorDeMercado: "",
+
+    },
+    { 
+        nombre: "",
+        apellido: "",
+        edad: "",
+        nacionalidad: "", 
+        club: "",
+        carrera: "",
+        fisico: "",
+        valorDeMercado: "",
+
+    },
+    { 
+     nombre: "",
+     apellido: "",
+     edad: "",
+     nacionalidad: "", 
+     club: "",
+     carrera: "",
+     fisico: "",
+     valorDeMercado: "",
+
+ },
+ { 
+     nombre: "",
+     apellido: "",
+     edad: "",
+     nacionalidad: "", 
+     club: "",
+     carrera: "",
+     fisico: "",
+     valorDeMercado: "",
+
+ },
+ { 
+     nombre: "",
+     apellido: "",
+     edad: "",
+     nacionalidad: "", 
+     club: "",
+     carrera: "",
+     fisico: "",
+     valorDeMercado: "",
+
+ },
+ { 
+     nombre: "",
+     apellido: "",
+     edad: "",
+     nacionalidad: "", 
+     club: "",
+     carrera: "",
+     fisico: "",
+     valorDeMercado: "",
+
+ },
+ { 
+    nombre: "",
+    apellido: "",
+    edad: "",
+    nacionalidad: "", 
+    club: "",
+    carrera: "",
+    fisico: "",
+    valorDeMercado: "",
+
+},
+{ 
+ nombre: "",
+ apellido: "",
+ edad: "",
+ nacionalidad: "", 
+ club: "",
+ carrera: "",
+ fisico: "",
+ valorDeMercado: "",
+
+},
+{ 
+ nombre: "",
+ apellido: "",
+ edad: "",
+ nacionalidad: "", 
+ club: "",
+ carrera: "",
+ fisico: "",
+ valorDeMercado: "",
+
+},
+{ 
+ nombre: "",
+ apellido: "",
+ edad: "",
+ nacionalidad: "", 
+ club: "",
+ carrera: "",
+ fisico: "",
+ valorDeMercado: "",
+
+},
+{ 
+ nombre: "",
+ apellido: "",
+ edad: "",
+ nacionalidad: "", 
+ club: "",
+ carrera: "",
+ fisico: "",
+ valorDeMercado: "",
+
+},
+{ 
+    nombre: "",
+    apellido: "",
+    edad: "",
+    nacionalidad: "", 
+    club: "",
+    carrera: "",
+    fisico: "",
+    valorDeMercado: "",
+
+},
+{ 
+ nombre: "",
+ apellido: "",
+ edad: "",
+ nacionalidad: "", 
+ club: "",
+ carrera: "",
+ fisico: "",
+ valorDeMercado: "",
+
+},
+{ 
+ nombre: "",
+ apellido: "",
+ edad: "",
+ nacionalidad: "", 
+ club: "",
+ carrera: "",
+ fisico: "",
+ valorDeMercado: "",
+
+},
+{ 
+ nombre: "",
+ apellido: "",
+ edad: "",
+ nacionalidad: "", 
+ club: "",
+ carrera: "",
+ fisico: "",
+ valorDeMercado: "",
+
+},
+{ 
+ nombre: "",
+ apellido: "",
+ edad: "",
+ nacionalidad: "", 
+ club: "",
+ carrera: "",
+ fisico: "",
+ valorDeMercado: "",
+
+},
+    ]
+}
