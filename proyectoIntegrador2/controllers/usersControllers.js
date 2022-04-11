@@ -1,5 +1,5 @@
-const nombreUsuario = require("../db/usuarios");
-const usuario = require ("../db/usuarios");
+const nombreUsuario = require("../db/users");
+const usuario = require ("../db/users");
 
 const usuarioController = {
     usuario: function(req,res){
