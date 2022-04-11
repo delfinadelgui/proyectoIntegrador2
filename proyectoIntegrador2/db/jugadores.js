@@ -144,3 +144,5 @@ let jugadores = {
 
     ]
 }
+
+module.exports = jugadores;  
