@@ -1,5 +1,5 @@
 const db = require ('../db/jugadores'); // const o let
-const usuario = require ('../db/usuarios');
+const usuario = require ('../db/users');
 
 const indexController = {
     home: function (req, res){
