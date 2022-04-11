@@ -253,4 +253,5 @@ router.get('/valorDeMercado/:valorDeMercado', function(req, res){//ruta paramatr
 
 
 
+
 module.exports = router; 
