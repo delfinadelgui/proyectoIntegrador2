@@ -1,6 +1,7 @@
 let jugadores = {
     lista: [
     { 
+        id: "1",
         nombre: "Paulo Bruno Exequiel",
         apellido: "Dybala",
         edad: "28",
@@ -11,8 +12,10 @@ let jugadores = {
         trayectoria: "Instituo Central de Cordoba(2011-2012); Palermo(2012-2015); Juventus(2015-2022)",
         fisico: "Mide 1,77m y pesa 77kg",
         valorDeMercado: "40 millones de euros",
+        
     },
     { 
+        id: "2",
         nombre: "Lionel Andres",
         apellido: "Messi",
         edad: "34",
@@ -23,9 +26,11 @@ let jugadores = {
         trayectoria: "Newells(1995-2000); FC Barcelona(2004-2021); PSG(2021-actualmente)",
         fisico: "Mide 1,69m y pesa 67kg",
         valorDeMercado: "60 millones de euros",
+        id: "2",
 
     },
     { 
+        id: "3",
         nombre: "Robert",
         apellido: "Lewandoski",
         edad: "33",
@@ -39,6 +44,7 @@ let jugadores = {
 
     },
     { 
+        id: "4",
         nombre: "Zlatan",
         apellido: "Ibrahimovic",
         edad: "40",
@@ -52,6 +58,7 @@ let jugadores = {
 
     },
     { 
+        id: "5",
         nombre: "N'Golo",
         apellido: "Kante",
         edad: "31",
@@ -65,6 +72,7 @@ let jugadores = {
 
     },
     { 
+        id: "6",
         nombre: "Julian",
         apellido: "Alvarez",
         edad: "22",
@@ -78,6 +86,7 @@ let jugadores = {
 
 },
 { 
+        id: "7",
         nombre: "Phil",
         apellido: "Foden",
         edad: "21",
@@ -91,6 +100,7 @@ let jugadores = {
 
 },
 { 
+        id: "8",    
         nombre: "Pablo Martin",
         apellido: "Páez Gavira (Gavi)",
         edad: "17",
@@ -104,6 +114,7 @@ let jugadores = {
 
 },
 { 
+        id: "9",
         nombre: "Juan Fernando",
         apellido: "Quintero",
         edad: "29",
@@ -117,6 +128,7 @@ let jugadores = {
 
 },
 { 
+        id: "10",
         nombre: "Nahuel",
         apellido: "Molina",
         edad: "24",
