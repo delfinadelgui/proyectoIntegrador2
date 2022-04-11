@@ -1,7 +1,7 @@
 const jugadores = require ('../db/jugadores'); //para que pueda retornar la lista de jugadores que esta en la carpeta de jugadores en db
 
 const comentario = require ('../db/comentarios'); //idem 
-const nombreUsuario = require('../db/usuarios');
+const nombreUsuario = require('../db/users');
 
 const productoController = {
 
