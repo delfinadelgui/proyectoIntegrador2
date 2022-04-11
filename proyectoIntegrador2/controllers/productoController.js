@@ -6,7 +6,7 @@ const nombreUsuario = require('../db/users');
 const productoController = {
 
     agregarProducto : function(req,res){
-        res.render('product-add', {usuarios: nombreUsuario.lista }); //preguntar ESTO
+        res.render('product-add', {usuarios: nombreUsuario.lista }); //preguntar ESTOgi
     },
 
     detalleProducto : function(req, res) {
