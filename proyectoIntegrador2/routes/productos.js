@@ -1,11 +1,10 @@
 var express = require('express');
-const productoController = require('../controllers/productoController');
 var router = express.Router();
 
-const productsRouter = require('../db/index');
-    
-    router.get('/', productoController.detalleProducto);
+const productoController = require('../controllers/productoController');
 
+router.get('/', productoController.detalleProducto); //hay que poner lo de product add
+router.get('/', productoController.agregarProducto); //ver esto
 
 
 
