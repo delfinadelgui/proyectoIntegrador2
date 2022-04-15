@@ -10,4 +10,4 @@ router.get("/login", usersController.login);
 router.get("/loguear", usersControllers.loguear);
 router.get("/editar", usersControllers.editar);
 
-module.exports = router;
+module.exports = usersController;
