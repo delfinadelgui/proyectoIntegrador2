@@ -18,3 +18,6 @@ const usuarioController = {
         return res.render ("profile-edit", {usuarios: nombreUsuario.lista});
     }
 }
+
+module.exports = usuarioController;
+
