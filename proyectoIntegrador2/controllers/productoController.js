@@ -2,6 +2,7 @@ const jugadores = require ('../db/jugadores'); //para que pueda retornar la list
 
 const comentario = require ('../db/comentarios'); //idem 
 const nombreUsuario = require('../db/users');
+const router = require('../routes');
 
 const productoController = {
 
@@ -50,4 +51,4 @@ const productoController = {
     
 }
 
-module.exports = productoController;
+module.exports = router;

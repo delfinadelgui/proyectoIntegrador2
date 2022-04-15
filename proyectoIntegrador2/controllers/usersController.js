@@ -1,5 +1,6 @@
 const nombreUsuario = require("../db/users");
 const usuario = require ("../db/users");
+const router = require("../routes");
 
 const usuarioController = {
     usuario: function(req,res){
@@ -46,5 +47,5 @@ const usuarioController = {
     }
 }
 
-module.exports = usuarioController;
+module.exports = router;
 
