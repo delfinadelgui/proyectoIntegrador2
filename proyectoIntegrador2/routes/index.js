@@ -4,6 +4,6 @@ var router = express.Router();
 const indexController = require ("../controllers/indexController");
 
 router.get("/", indexController.home);
-router.get("/", indexController.resultados);
+router.get("/resultados", indexController.resultados); //http:localhost:3000
 
 module.exports = router;
