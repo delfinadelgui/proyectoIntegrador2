@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%= -include ./partials/head %> 
+
+<body>
+	<!-- Header -->
+	<%= -include /partials/header %> 
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Ingresar</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12"> <br>  <br>
+			<form action="/users/loguear" method="get">
+				<input name="usuario" type="text" placeholder="usuario">
+				<input name="contraseña" type="password" placeholder="contraseña">
+				<input type="submit" value="ingresar">
+			</form>
+		
+			<p>
+				<% if(error) {%>
+					<%=error %> 
+				<% } %> 	
+			</p>
+			</h2>
+
+	<!-- footer -->
+		<% -include /partials/footer %> 
+	<!-- /footer -->
+</body>
+
+</html>
