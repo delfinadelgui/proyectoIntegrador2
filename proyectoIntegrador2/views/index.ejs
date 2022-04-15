@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<% -include ./partials/head %> 
+<% include ./partials/head %> 
 <body>
 	<!-- Header -->
-	<% -include ./partials/header %>
+	<% include ./partials/header %>
 	<!-- /Header -->
 	
 	<!-- Banner -->
-	<% -include ./partials/banner %>
+	<% include ./partials/banner %>
 	<!-- /Banner -->
 
 	<!-- Novedades -->
@@ -18,7 +18,7 @@
 				<h2 class="products-title">Novedades</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for(let i = 0; i < jugadores.length; i++) { %>
+			<% for(let i = 0; i<jugadores.length; i++) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/productos/detalle/<%= jugadores[i].id %>">
@@ -107,7 +107,7 @@
 
 
 	<!-- footer -->
-	<% -include ./partials/footer %> 
+	<% include ./partials/footer %> 
 	
 	<!-- /footer -->
 </body>	

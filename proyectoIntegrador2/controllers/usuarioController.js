@@ -47,5 +47,5 @@ const usuarioController = {
     }
 }
 
-module.exports = router;
+module.exports = usuarioController;
 

@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-const usersController = require ("../controllers/usersControllers");
 
-router.get("/", usersController.usuario);
-router.get("/registro", usersController.registro);
-router.get("/registrar", usersController.registrar);
-router.get("/login", usersController.login);
-router.get("/loguear", usersControllers.loguear);
-router.get("/editar", usersControllers.editar);
+const usuarioController = require('../controllers/usuarioController');
 
-module.exports = usersController;
+router.get("/", usuarioController.usuario);
+router.get("/registro", usuarioController.registro);
+router.get("/registrar", usuarioController.registrar);
+router.get("/login", usuarioController.login);
+router.get("/loguear", usuarioController.loguear);
+router.get("/editar", usuarioController.editarUser);
+
+module.exports = router;

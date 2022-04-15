@@ -51,4 +51,4 @@ const productoController = {
     
 }
 
-module.exports = router;
+module.exports = productoController;

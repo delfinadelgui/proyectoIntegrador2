@@ -7,4 +7,4 @@ router.get('/detalle/:id', productoController.detalleProducto); //hay que poner 
 router.get('/agregar', productoController.agregarProducto); //ver esto
 router.get('/busqueda', productoController.busquedaProducto);
 
-module.exports = productoController; 
+module.exports = router; 
