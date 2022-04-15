@@ -8,7 +8,10 @@ let nombreUsuario = {
             FechaDeNaciemiento: "16-05-1978",
             Equipo: "Boca",
             PuestoDeTrabajo: "Director tecnico",
-            Organizacion: "Seleccion Argentina",  
+            Organizacion: "Seleccion Argentina",
+            nombre: 'Lionel',
+            apellido: 'Scaloni'
+              
         }
 
     ]
