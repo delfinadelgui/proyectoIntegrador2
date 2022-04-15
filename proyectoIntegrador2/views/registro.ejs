@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<% -include ./partails/head %> 
+
+<body>
+	<!-- Header -->
+	<% -include ./partials/header %> 
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Registrate</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
+				<form action="/users/registrar" method="get">
+					<input name= "nombre" type="text" placeholder="nombre">
+					<input name= "email" type="email" placeholder="email">
+					<input name= "usuario" type="text" placeholder="usuario">
+					<input name= "contraseña" type="password" placeholder="contraseña">
+					<input name= "registrarme" type="submit" placeholder="registrarme">
+				</form>
+			</h2>
+
+
+	<!-- footer -->
+	<% -include ./partials/footer %> 
+	<!-- /footer -->
+</body>
+
+</html>

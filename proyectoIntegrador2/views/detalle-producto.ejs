@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<% include ./partials/head %> 
+<% -include ./partials/head %> 
 <body>
 	<!-- Header -->
-<% include ./partials/header %> 
+<% -include ./partials/header %> 
 				
 	<!-- product detail -->
 	<div class="container products-wrapper">
@@ -19,9 +19,8 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="<%= jugador.imagen  %> " alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo unde? Consectetur dolorem neque
-						veritatis.</p>
+						<strong>Nombre:</strong>	<%= jugador.nombre %> <%= jugador.apellido %> 
+					</p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
@@ -30,7 +29,7 @@
 							<div class="data">
 								<p class="user">
 								<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
+								Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
 							</div>
 						</article>
 						<article>
@@ -81,7 +80,7 @@
 	<!-- /product detail -->
 
 	<!-- footer -->
-	<% include ./partials/footer %> 
+	<% -include ./partials/footer %> 
 	<!-- /footer -->
 
 </body>	
