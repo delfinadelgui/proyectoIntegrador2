@@ -9,7 +9,7 @@
   --light-blue: #1259c3;
   --gray: #666666;
   --light-gray: #ebebeb;
-  --green: #39b54a;
+  --green: #0fbd26;
   --base-font-family: 'Roboto', sans-serif
 }
 
@@ -68,7 +68,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: var(--green);
 }
 
 .main-header_home-link,
