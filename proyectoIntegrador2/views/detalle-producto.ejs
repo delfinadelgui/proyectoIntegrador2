@@ -9,7 +9,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%= jugador.nombre %> <%= jugador.apellido %></h2> 
 			<p class="product-detail-description">
 				<a href="product-add.html">Editar</a>
 			</p>
@@ -20,7 +20,34 @@
 					<img src="<%= jugador.imagen  %> " alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<strong>Nombre:</strong>	<%= jugador.nombre %> <%= jugador.apellido %> 
+						
 					</p>
+					<ul>
+						<li>
+							<h3>Edad: <%= jugador.edad %> </h3>
+						</li>
+						<li>
+							<h3>Fecha de nacimiento: <%= jugador.nacimiento %> </h3>
+						</li>
+						<li>
+							<h3>Nacionalidad: <%= jugador.nacionalidad %> </h3>
+						</li>
+						<li>
+							<h3>Club actual: <%= jugador.club %> </h3>
+						</li>
+						<li>
+							<h3>Posicion: <%= jugador.posicion %> </h3>
+						</li>
+						<li>
+							<h3>Trayectoria: <%= jugador.trayectoria %> </h3>
+						</li>
+						<li>
+							<h3>Apto fisico: <%= jugador.fisico %> </h3>
+						</li>
+						<li>
+							<h3>Valor De Mercado: <%= jugador.valorDeMercado %> </h3>
+						</li>
+					</ul>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
