@@ -80,6 +80,7 @@ hr {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .search-form {
@@ -132,6 +133,7 @@ hr {
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
 }
 
 .logout{
@@ -175,6 +177,7 @@ hr {
   font-weight: 400;
   color: var(black);
   text-decoration: underline;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .product-box {
