@@ -33,7 +33,7 @@ const usuarioController = {
                 usuarioLog = user; 
             }
         }
-
+        
         if(usuarioLog){
             return res.render('editar-usuario', {usuario: usuarioLog});
         }

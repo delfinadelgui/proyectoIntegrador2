@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<% include ./partials/head %> 
+<body>
+	<!-- Header -->
+<% include ./partials/header %> 
+				
+	<!-- product detail -->
+	<div class="container products-wrapper">
+		<div class="d-flex align-items-center">
+			<h2 class="products-title"><%= jugadorEncontrado.nombre %> <%= jugadorEncontrado.apellido %></h2> 
+			<p class="product-detail-description">
+				
+			</p>
+		</div>
+		<div class="product-detail">
+			<div class="row">
+				<form action="">
+                    <input type="text" placeholder="nombre" value="<%= jugadorEncontrado.nombre %>">
+                </form>
+				
+			</div>
+		</div>
+	</div>
+	<!-- /product detail -->
+
+	<!-- footer -->
+	<% include ./partials/footer %> 
+	<!-- /footer -->
+
+</body>	
+</html>

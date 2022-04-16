@@ -5,7 +5,7 @@
 
 <body>
 	<!-- Header -->
-	<% inlcude ./partials/header %> 
+	<% include ./partials/headerLogueado %> 
 	<!-- /Header -->
 
 	
@@ -41,7 +41,7 @@
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>/ <br> <br>
+			<h2 class="col-12"> <br> <br>
 				<form action="/users/registrar" method="get">
 					<input value="<%= usuario.nombre %>" name="nombre" type="text" placeholder="nombre">
 					<input value="<%= usuario.apellido %>" name="apellido" type="text" placeholder="apellido">

@@ -46,7 +46,12 @@ const productoController = {
             }
         }
 
-        res.render('buscar-resultados', {jugadoresEncontrados: jugadoresEncontrados});
+        res.render('buscar-resultados', {jugadoresEncontrados: jugadoresEncontrados}); 
+    },
+
+    editar: function (req,res) {
+        let jugadorEncontrado = jugadores.lista[0]
+        res.render('editar-producto', {jugadorEncontrado: jugadorEncontrado});
     }
     
 }

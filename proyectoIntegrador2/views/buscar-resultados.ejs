@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<% inlcude ./partials/head %> 
+ <% include ./partials/head %> 
 
 <body>
 	<!-- Header -->
@@ -27,13 +27,13 @@
 									<h2><%= jugadoresEncontrados[i].nombre %> <%= jugadoresEncontrados[i].apellido %></h2>
 									<p><ul>
 										<li>
-											<strong>Club:</strong><%= jugadores[i].club %> 
+											<strong>Club:</strong><%= jugadoresEncontrados[i].club %> 
 										</li>
 										<li>
-											<strong>Posicion:</strong><%= jugadores[i].posicion %> 
+											<strong>Posicion:</strong><%= jugadoresEncontrados[i].posicion %> 
 										</li>
 										<li>
-											<strong>Valor De Mercado:</strong><%= jugadores[i].valorDeMercado%> 
+											<strong>Valor De Mercado:</strong><%= jugadoresEncontrados[i].valorDeMercado%> 
 										</li>
 									</ul></p>
 									<p>Comentarios: 5 </p>
