@@ -29,7 +29,7 @@ const usuarioController = {
 
             let user = nombreUsuario.lista[i];
 
-            if(user.Contrasena == contrasena && user.Usuario == usuario){
+            if(user.contrasena == contrasena && user.Usuario == usuario){
                 usuarioLog = user; 
             }
         }

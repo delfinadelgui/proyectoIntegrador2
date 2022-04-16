@@ -22,7 +22,7 @@ const productoController = {
 
             }
         }
-         //i
+         //reo que hay quw hacer uno de cometariox
 
         res.render('detalle-producto', {jugador: jugador});       
     },

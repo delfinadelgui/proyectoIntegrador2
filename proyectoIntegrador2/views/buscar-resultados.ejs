@@ -12,7 +12,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados</h2>
+				<h2 class="products-title"> <strong>Resultados</strong></h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<% if(jugadoresEncontrados.length > 0) { %>
@@ -25,8 +25,18 @@
 								</figure>
 								<article class="product-box_data">
 									<h2><%= jugadoresEncontrados[i].nombre %> <%= jugadoresEncontrados[i].apellido %></h2>
-									<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
+									<p><ul>
+										<li>
+											<strong>Club:</strong><%= jugadores[i].club %> 
+										</li>
+										<li>
+											<strong>Posicion:</strong><%= jugadores[i].posicion %> 
+										</li>
+										<li>
+											<strong>Valor De Mercado:</strong><%= jugadores[i].valorDeMercado%> 
+										</li>
+									</ul></p>
+									<p>Comentarios: 5 </p>
 								</article>
 							</a>
 						</section>
