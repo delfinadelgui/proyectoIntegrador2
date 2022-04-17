@@ -6,7 +6,7 @@ const router = require('../routes');
 
 const productoController = {
 
-    agregarProducto : function(req,res){
+    agregarProducto : function(req, res){
         res.render('agregar-producto', {usuarios: nombreUsuario.lista }); //preguntar ESTOgi
     },
 
