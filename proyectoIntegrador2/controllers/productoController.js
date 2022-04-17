@@ -3,6 +3,7 @@ const jugadores = require ('../db/jugadores'); //para que pueda retornar la list
 const comentario = require ('../db/comentarios'); //idem 
 const nombreUsuario = require('../db/users');
 const router = require('../routes');
+const comentarios = require('../db/comentarios');
 
 const productoController = {
 
@@ -22,9 +23,20 @@ const productoController = {
 
             }
         }
+
+        let comentario;
+
+        for(let i=0; i<comentarios.lista.length; i++){
+
+            {
+                
+                comentario = comentarios.lista[i];
+
+            }
+        }
          //reo que hay quw hacer uno de cometariox
 
-        res.render('detalle-producto', {jugador: jugador});       
+        res.render('detalle-producto', {jugador: jugador, comentario: comentario});       
     },
     
     busquedaProducto: function(req,res){

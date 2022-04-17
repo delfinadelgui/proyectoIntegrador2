@@ -175,7 +175,7 @@ let jugadores = {
     trayectoria: "Chelsea(2017-presente)",
     fisico: "Mide 1,80m y pesa 77kg",
     valorDeMercado: "75 millones de euros",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlUyinjI-I9KqHRX3CDtOG2c1yT2MAuFAPP_IoR34wheRyd3hcjqfEdiPLUWhnWGqCDlA&usqp=CAU"  
+    imagen: "/images/jugadores/mason.jpg"
 },
     
     ]
