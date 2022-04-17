@@ -149,7 +149,35 @@ let jugadores = {
         imagen: "https://http2.mlstatic.com/D_NQ_NP_668972-MLA49366289997_032022-V.jpg"
 
 },
-
+{ 
+    id: "11",
+    nombre: "Juan Guillermo",
+    apellido: "Cuadrado Bello",
+    edad: "33",
+    nacimiento: "26/05/1988",
+    nacionalidad: "Colombia", 
+    club: "Juventus",
+    posicion:"Lateral Derecho",
+    trayectoria: "Independiente Medellín(2008-2009); Udinese(2009-2011); Lecce(2011-2012); Fiorentina(2012-2015); Chelsea(2015-2017); Juventus(2017-act.)",
+    fisico: "Mide 1,76m y pesa 77kg",
+    valorDeMercado: "10 millones de euros",
+    imagen: "https://i.pinimg.com/564x/e3/be/02/e3be02e3c6510d79328baad9af771050.jpg"
+},
+{
+    id: "12",
+    nombre: "Mason",
+    apellido: "Mount",
+    edad: "23",
+    nacimiento: "10/01/1991",
+    nacionalidad: "Inglaterra", 
+    club: "Chelsea",
+    posicion:"Mediocentro ofensivo",
+    trayectoria: "Chelsea(2017-presente)",
+    fisico: "Mide 1,80m y pesa 77kg",
+    valorDeMercado: "75 millones de euros",
+    imagen: "/images/jugadores/mason.jpg"
+},
+    
     ]
 }
 
