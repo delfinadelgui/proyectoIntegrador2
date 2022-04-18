@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express'); //usar modulo express
+var router = express.Router(); //identif  y manejo como router
 
 const productoController = require('../controllers/productoController');
 

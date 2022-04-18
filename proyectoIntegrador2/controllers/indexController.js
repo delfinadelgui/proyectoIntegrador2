@@ -1,12 +1,12 @@
-const db = require ('../db/jugadores'); // const o let
+const db = require ('../db/jugadores'); 
 const usuario = require ('../db/users');
 
-const indexController = {
+const indexController = { //metodo, func
     home: function (req, res){
         res.render('index', { jugadores: db.lista})
     },
     resultados: function(req,res){
-        res.render("search-results")
+        res.render("buscar-resultados")
     },
 }
 
