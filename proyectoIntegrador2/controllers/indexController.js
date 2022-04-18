@@ -1,7 +1,7 @@
 const db = require ('../db/jugadores'); 
-const usuario = require ('../db/users');
 
-const indexController = { //metodo, func
+
+const indexController = { //metodo
     home: function (req, res){
         res.render('index', { jugadores: db.lista})
     },
@@ -10,4 +10,4 @@ const indexController = { //metodo, func
     },
 }
 
-module.exports = indexController;
+module.exports = indexController; //importamos

@@ -1,15 +1,15 @@
 const createError = require('http-errors');
-const express = require('express');
+const express = require('express'); 
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const app = express();
+const app = express(); //se almacena aca 
 
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// motor setup
+app.set('views', path.join(__dirname, 'views')); //donde se encuentra 
+app.set('view engine', 'ejs'); //que motor
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //modulos propios = exportando 
-const productRouter = require('./routes/productos');
+const productRouter = require('./routes/productos'); 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 

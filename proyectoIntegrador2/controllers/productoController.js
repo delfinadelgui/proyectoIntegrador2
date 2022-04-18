@@ -2,13 +2,12 @@ const jugadores = require ('../db/jugadores'); //para que pueda retornar la list
 
 
 const nombreUsuario = require('../db/users');
-const index = require('../routes/index');
 const comentarios = require('../db/comentarios');
 
 const productoController = {
 
     agregarProducto : function(req, res){
-        res.render('agregar-producto', {usuarios: nombreUsuario.lista }); //preguntar ESTOgi
+        res.render('agregar-producto', {usuarios: nombreUsuario.lista }); 
     },
 
     detalleProducto : function(req, res) {
