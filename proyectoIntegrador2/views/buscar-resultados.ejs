@@ -15,36 +15,13 @@
 				<h2 class="products-title"> <strong>Resultados</strong></h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% if(jugadoresEncontrados.length > 0) { %>
-				<% for(let i = 0; i < jugadoresEncontrados.length; i++) { %>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/productos/detalle"><%= jugadoresEncontrados[i].id %>"
-								<figure class="product-box_image">
-									<img src="<%= jugadoresEncontrados[i].imagen %> " alt="jugadoresEncontrados">
-								</figure>
-								<article class="product-box_data">
-									<h2><%= jugadoresEncontrados[i].nombre %> <%= jugadoresEncontrados[i].apellido %></h2>
-									<p><ul>
-										<li>
-											<strong>Club:</strong><%= jugadoresEncontrados[i].club %> 
-										</li>
-										<li>
-											<strong>Posicion:</strong><%= jugadoresEncontrados[i].posicion %> 
-										</li>
-										<li>
-											<strong>Valor De Mercado:</strong><%= jugadoresEncontrados[i].valorDeMercado%> 
-										</li>
-									</ul></p>
-									<p>Comentarios: 5 </p>
-								</article>
-							</a>
-						</section>
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Aca vendrian los resultados de busqueda del cliente</h2>
 					</div>
-				<% } %>
-			<% } else { %>
-				<h2>No se encontraron resultados</h2>
-			<% } %>
+					
+			
 		</div>
 	</div>
 			

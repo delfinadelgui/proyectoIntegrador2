@@ -11,7 +11,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= jugador.nombre %> <%= jugador.apellido %></h2> 
 			<p class="product-detail-description">
-				<a href="/productos/editar">Editar</a>
+				<a href="/">Editar</a>
 			</p>
 		</div>
 		<div class="product-detail">
@@ -57,15 +57,47 @@
 							<img src="<%= comentario.imagen %> " alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/nombreDeUsuario"><%=comentario.nombreDeUsuario%></a></strong>
-								<%=comentario.comentario %> </p>
-							</div>
+								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
+								<%= comentario.comentario%> </p>
+							
+						</article>
+						<article>
+							<img src="<%= comentario.imagen %> " alt="">
+							<div class="data">
+								<p class="user">
+								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
+								<%= comentario.comentario%> </p>
+							
+						</article>
+						<article>
+							<img src="<%= comentario.imagen %> " alt="">
+							<div class="data">
+								<p class="user">
+								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
+								<%= comentario.comentario%> </p>
+							
+						</article>
+						<article>
+							<img src="<%= comentario.imagen %> " alt="">
+							<div class="data">
+								<p class="user">
+								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
+								<%= comentario.comentario%> </p>
+							
+						</article>
+						<article>
+							<img src="<%= comentario.imagen %> " alt="">
+							<div class="data">
+								<p class="user">
+								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
+								<%= comentario.comentario%> </p>
+							
 						</article>
 
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						<button href="" type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
 				</div>
