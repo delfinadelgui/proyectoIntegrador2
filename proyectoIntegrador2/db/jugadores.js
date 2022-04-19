@@ -12,7 +12,7 @@ let jugadores = {
         trayectoria: "Instituo Central de Cordoba(2011-2012); Palermo(2012-2015); Juventus(2015-2022)",
         fisico: "Mide 1,77m y pesa 77kg",
         valorDeMercado: "40 millones de euros",
-        imagen: "https://i.pinimg.com/originals/09/3d/55/093d55e3c6dd2d8ad32298b8842d7491.jpg"
+        imagen: "/images/jugadores/dybala.jpg"
     },
     { 
         id: "2",
