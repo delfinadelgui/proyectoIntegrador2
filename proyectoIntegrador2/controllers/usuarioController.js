@@ -12,6 +12,7 @@ const usuarioController = {
     },
 
     registrar: function(req,res){
+        console.log(req.body)
         return res.send('recibiendo datos');
     },
 

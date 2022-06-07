@@ -1,4 +1,4 @@
-//comments del producto
+//comments del p
 let comentarios = {
     lista: [
 
