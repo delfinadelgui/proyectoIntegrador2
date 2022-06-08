@@ -17,21 +17,27 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> <i> <br> <br>
 				<form action="/users/registrar" method="post">
-					<input name= "nombre" type="text" placeholder="nombre">
-					<input name= "usuario" type="text" placeholder="usuario">
-					<input name= "email" type="email" placeholder="email">
-					<input name= "contrasena" type="password" placeholder="contraseña">
-					<input name="dni" type="number" placeholder="nro de documento">
-					<input name="fecha_nacimiento" type="date" placeholder="fecha de nacimiento">
+					<input required name="nombre" type="text" placeholder="nombre">
+					<input required name="apellido" type="text" placeholder="apellido">
+					<input required name="usuario" type="text" placeholder="usuario">
+					<input required name="email" type="email" placeholder="email">
+					<input required name="contrasena" type="password" placeholder="contraseña">
+					<input required name="dni" type="number" placeholder="nro de documento">
+					<input required name="fecha_nacimiento" type="date" placeholder="fecha de nacimiento">
 					<input name="foto" type="file">
 					<input type="submit">
 				</form>
 			</h2>
-
-
+			<% if(error) {%>
+				El usuario ya existe 
+			<% } %> 
+			<% if(ok) {%>
+				Se registro correctamente
+			<% } %> 
 	<!-- footer -->
 	<%- include('./partials/footer') %> 
 	<!-- /footer -->
 </body>
+
 
 </html>
