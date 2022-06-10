@@ -18,7 +18,7 @@ const usuarioController = {
     },
 
     registrar: function(req,res){
-        const storage = multer.diskStorage({
+      /*  const storage = multer.diskStorage({
             destination: function (req, file, cb) {
               cb(null, './public/images/')
             },
@@ -29,14 +29,19 @@ const usuarioController = {
             }
           })
           
-          const upload = multer({ storage: storage });
+          const upload = multer({ storage: storage });*/
+        
+          if(req.body.contrasena.length<=3){
+            return res.render ("registro", {error: true, message: "la contraseña debe tener mas de 3 caracteres", ok: false})
+          }
         console.log(req.body)
         User.create({
             nombre: req.body.nombre, 
             apellido: req.body.apellido,
             usuario: req.body.usuario,
-            contrasena: bcrypt.hashSync(req.body.contrasena),
-            fecha_naciomiento: req.body.fecha_nacimiento,
+            //contrasena: bcrypt.hash(req.body.contrasena,12),
+            contrasena:1234,
+            fecha_nacimiento: req.body.fecha_nacimiento,
             dni: req.body.dni,
             email: req.body.email,
             imagen: "imagen",
@@ -46,7 +51,8 @@ const usuarioController = {
             return res.render ("registro", {error: false, ok: true});
         }) 
         .catch(error => {
-            return res.render ("registro", {error: true, ok: false});
+            console.log(JSON.stringify(error.errors[0].message))
+            return res.render ("registro", {error: true, message:error.errors[0].message, ok: false});
         })
     },
 

@@ -34,8 +34,8 @@ const User = sequelize.define('User', {
       }
 }, {
   tableName: 'users', //di la tabla no se llama en plural como el modelo, por ejemplo nuestra tabla de jugadores osea PLAYER en modelo se tiene que llamar PLAYERS LA TABLA
-  timestamps: false, //me lo devuelve solo, en la base la tabla no tiene timestamps, serian si no tiene campos createdAT y updatedAT
-  underscored: false, 
+  timestamps: true, //me lo devuelve solo, en la base la tabla no tiene timestamps, serian si no tiene campos createdAT y updatedAT
+  underscored: true, 
 });
 
 // `sequelize.define` also returns the model
