@@ -23,7 +23,7 @@ router.get("/", usuarioController.usuario);
 router.get("/registro", usuarioController.registro);
 router.post("/registrar", upload.single("foto"), usuarioController.registrar); //se ejecuta el middle where para subir la foto antes del controller
 router.get("/login", usuarioController.login); //localhost:3000/users/login
-router.get("/loguear", usuarioController.loguear);
+router.post("/loguear", usuarioController.loguear);
 router.get("/editar", usuarioController.editarUser);
 
 module.exports = router;

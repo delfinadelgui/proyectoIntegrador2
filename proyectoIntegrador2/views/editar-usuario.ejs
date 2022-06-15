@@ -16,7 +16,7 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%= usuario.nombre %> <%= usuario.apellido %>
+					<h1 class="main-title"> hola <%= user.nombre %>
 						<a href="">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -43,11 +43,11 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> <br> <br>
 				<form action="/users/registrar" method="get">
-					<input value="<%= usuario.nombre %>" name="nombre" type="text" placeholder="nombre">
-					<input value="<%= usuario.apellido %>" name="apellido" type="text" placeholder="apellido">
-					<input value="<%= usuario.Email %>" name="email" type="text" placeholder="email">
-					<input value="<%= usuario.PuestoDeTrabajo%>" name="trabajo" type="text" placeholder="trabajo">
-					<input value="<%= usuario.Organizacion %>" name="org" type="text" placeholder="organizacion">
+					<input  name="nombre" type="text" placeholder="nombre">
+					<input  name="apellido" type="text" placeholder="apellido">
+					<input  name="email" type="text" placeholder="email">
+					<input  name="trabajo" type="text" placeholder="trabajo">
+					<input  name="org" type="text" placeholder="organizacion">
 					<input name="contraseña" type="password" placeholder="contraseña">
 					<input name="actualizar" type="submit" value="actualizar">
 				</form>

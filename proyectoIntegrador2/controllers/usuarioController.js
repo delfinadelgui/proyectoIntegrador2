@@ -48,30 +48,34 @@ const usuarioController = {
     },
 
     loguear: function(req,res){
+        req.session.user = {
+            nombre: 'juan perez'
+        }
+
+        return res.redirect('/users/editar')
 
         let usuario = req.query.usuario;
         let contrasena = req.query.contrasena;
-        let usuarioLog;
-
-        for(let i=0; i<nombreUsuario.lista.length; i++){
-
-            let user = nombreUsuario.lista[i];
-
-            if(user.contrasena == contrasena && user.Usuario == usuario){
-                usuarioLog = user; 
+        User.findOne({
+            where:{
+                email:req.body.email
             }
-        }
+        })
+        .then(user=>{
+            console.log(user, bcrypt.compareSync(req.body.password, user.contrasena) )
+            if(user==null || !bcrypt.compareSync(req.body.password, user.contrasena)){
+                return res.render("login", {error: "Usuario o contraseña inválida"});
+
+            }
+            req.session.user = user
+            res.redirect("/")
+        })
+
         
-        if(usuarioLog){
-            return res.render('editar-usuario', {usuario: usuarioLog});
-        }
-        else{
-            res.render('login', {error: 'usuario o contraseña invalida'});
-        }
     },
 
     editarUser: function(req,res){
-        return res.render ("editar-usuario", {usuarios: nombreUsuario.lista});
+        return res.render ("editar-usuario");
     }
 }
 
