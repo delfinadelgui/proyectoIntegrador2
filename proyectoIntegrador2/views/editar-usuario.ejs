@@ -12,11 +12,11 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="https://tntsports.com.ar/__export/1605552793068/sites/tntsports/img/2020/11/16/lionel_scaloni_conferencia_de_prensa_seleccion_argentina_dt.jpg_268743223.jpg" alt="foto de perfil" class="foto-perfil">
+				<img src="/images/<%= user.imagen %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> hola <%= user.nombre %>
+					<h1 class="main-title"> <%= user.nombre %> <%= user.apellido %>
 						<a href="">
 							<i class="fas fa-cog"></i>
 						</a>
