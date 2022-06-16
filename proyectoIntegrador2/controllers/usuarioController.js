@@ -1,11 +1,11 @@
-const nombreUsuario = require("../db/users");
-const usuario = require ("../db/users");
-const router = require("../routes");
+
 const User = require("../database/models/User");
 const { request } = require("express");
 const bcrypt = require("bcryptjs");
+
 const multer  = require('multer')
-const upload = multer({ dest: './public/images/'})
+
+const upload = multer({ dest: './public/images/'}) //ver
 
 const usuarioController = {
     usuario: function(req,res){
@@ -19,9 +19,9 @@ const usuarioController = {
 
     registrar: function(req,res){
         
-          if(req.body.contrasena.length<=3){
+        if(req.body.contrasena.length<=3){
             return res.render ("registro", {error: true, message: "la contraseña debe tener mas de 3 caracteres", ok: false})
-          }
+        }
         console.log(req.file)
         User.create({
             nombre: req.body.nombre, 
@@ -48,33 +48,47 @@ const usuarioController = {
     },
 
     loguear: function(req,res){
-        req.session.user = {
-            nombre: 'juan perez'
-        }
-
-        return res.redirect('/users/editar')
-
+        
         let usuario = req.query.usuario;
         let contrasena = req.query.contrasena;
+        
+        console.log(req.body);
+
         User.findOne({
             where:{
                 email:req.body.email
             }
         })
         .then(user=>{
-            console.log(user, bcrypt.compareSync(req.body.password, user.contrasena) )
+
             if(user==null || !bcrypt.compareSync(req.body.password, user.contrasena)){
                 return res.render("login", {error: "Usuario o contraseña inválida"});
 
             }
+        
+            if(req.body.recordame != undefined) {
+                res.cookie('userId',user.id,{maxAge: 1000*60*100} )
+            }
+
             req.session.user = user
-            res.redirect("/")
+            return res.redirect("/users/editar")
         })
 
         
     },
 
+    logout: function(req, res) {
+        req.session.user = undefined;
+        res.clearCookie('userId');
+        res.redirect('/users/login');
+    },
+
     editarUser: function(req,res){
+        
+        if(req.session.user == undefined) {
+            return res.redirect('/users/login');
+        }
+        
         return res.render ("editar-usuario");
     }
 }
