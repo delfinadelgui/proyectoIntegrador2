@@ -1,25 +1,36 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
 const Sequelize = require('sequelize');
-const env = 'development';
-const config = require(__dirname + '/../../.database/config/config.js')[env];
+const basename = path.basename(__filename);
+const config = require('../../.database/config/config');
+const db = {};
 
-const sequelize = new Sequelize(config.database, config.username, config.password, {
-  host: config.host,
-  dialect: 'mysql'
+const sequelize = new Sequelize(config.development.database, config.development.username, config.development.password, {
+  host: config.development.host,
+  dialect: 'mysql',
+  logging: false
 });
 
-const test = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+  })
+  .forEach(file => {
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    db[model.name] = model;
+  });
+
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
   }
+});
 
-}
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-test()
-
-module.exports = sequelize;
+module.exports = db;
 
