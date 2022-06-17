@@ -1,5 +1,6 @@
 
-const User = require("../database/models/User");
+const db = require("../database/models");
+const User = db.User;
 const { request } = require("express");
 const bcrypt = require("bcryptjs");
 

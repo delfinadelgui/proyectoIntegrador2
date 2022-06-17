@@ -1,22 +1,18 @@
 //para que en los controladores podamos usar la info de db hayq ue hacer una variable que use lo de db
 const db = require('../database/models')
-//const jugador = db.Player //alias
-
-
+const Player = db.Player 
 
 
 const jugadores = require ('../db/jugadores'); //para que pueda retornar la lista de jugadores que esta en la carpeta de jugadores en db
 
 
-const nombreUsuario = require('../db/users');
-const comentarios = require('../db/comentarios');
 
 const productoController = {
     
     
 
     agregarProducto : function(req, res){
-        res.render('agregar-producto', {usuarios: nombreUsuario.lista }); 
+        res.render('agregar-producto'); 
     },
 
     detalleProducto : function(req, res) {
@@ -27,31 +23,15 @@ const productoController = {
                 
             })
             .catch(error => console.log(error))*/
-
-        let jugador; 
-        
-        for(let i=0; i<jugadores.lista.length; i++){
-
-            if(req.params.id == jugadores.lista[i].id){
-                
-                jugador = jugadores.lista[i];
-
-            }
-        }
-
-        let comentario;
-
-        for(let i=0; i<comentarios.lista.length; i++){
-
-            {
-                
-                comentario = comentarios.lista[i];
-
-            }
-        }
-         //reo que hay quw hacer uno de cometariox
-
-        res.render('detalle-producto', {jugador: jugador, comentario: comentario});       
+        let id = req.params.id;
+        Player.findByPk(4, { 
+            associate: "User"
+        })
+        .then( player => {
+            console.log(player),
+            res.render('detalle-producto', {jugador: player, comentario: []});
+        } )
+               
     },
     
     busquedaProducto: function(req,res){
@@ -59,6 +39,26 @@ const productoController = {
    
 
         res.render('buscar-resultados'); 
+    },
+
+    crearProducto: function(req,res){
+
+        Player.create({ 
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            nacionalidad: req.body.nacionalidad,
+            fecha_nacimiento: req.body.nacimiento,
+            club: req.body.club,
+            posicion: req.body.posicion,
+            trayectoria: req.body.trayectoria,
+            imagen: req.file.filename,
+            fisico: req.body.fisico,
+            valor_mercado: req.body.valor_mercado,
+            descripcion: req.body.descripcion,
+            user_id: req.session.user.id
+
+        })
+        .then( ()=> res.redirect("/productos/agregar"))
     }
    
 }

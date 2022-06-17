@@ -4,7 +4,7 @@ let jugadores = {
         id: "1",
         nombre: "Paulo Bruno Exequiel",
         apellido: "Dybala",
-        edad: "28",
+        edad: "28", // no la ponemos es al pedo 
         nacimiento: "15/11/1993",
         nacionalidad: "Argentina", 
         club: "Juventus",

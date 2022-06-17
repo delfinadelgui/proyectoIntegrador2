@@ -2,8 +2,8 @@
   module.exports = {
     "development": {
     "username": "root",
-    "password": "",
-    "database": "proyectointegrador", // ver desp cual base d datos esta mas prolija 
+    "password": "root",
+    "database": "proyectointegrador", 
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

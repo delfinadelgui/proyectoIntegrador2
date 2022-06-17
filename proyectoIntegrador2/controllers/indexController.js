@@ -1,9 +1,16 @@
-const db = require ('../db/jugadores'); 
-
+const db = require ("../database/models"); 
+const Player = db.Player;
 
 const indexController = { 
     home: function (req, res){  //obj literal
-        res.render('index', {jugadores: db.lista}) //ejs al nav
+        Player.findAll( {
+            model: db.User     
+        })
+        .then( (players)=> {
+           res.send(players),
+            res.render('index', {jugadores: players}) 
+    })
+        //ejs al nav
     },
     resultados: function(req,res){
         res.render("buscar-resultados")

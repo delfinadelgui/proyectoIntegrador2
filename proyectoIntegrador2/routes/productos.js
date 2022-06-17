@@ -3,8 +3,23 @@ var router = express.Router(); //identif  y manejo como router
 
 const productoController = require('../controllers/productoController');
 
+const multer  = require('multer')
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/images');
+  },
+  filename: function (req, file, cb) {
+    //console.log(file);
+    cb(null, Date.now() + '.' + file.mimetype.split('/').pop())
+  }
+})
+
+const upload = multer({ storage });
+
 router.get('/detalle/:id', productoController.detalleProducto); //hay que poner lo de product add
 router.get('/agregar', productoController.agregarProducto); //ver esto
+router.post('/crear-producto', upload.single("imagen"), productoController.crearProducto); 
 router.get('/busqueda', productoController.busquedaProducto);
 
 

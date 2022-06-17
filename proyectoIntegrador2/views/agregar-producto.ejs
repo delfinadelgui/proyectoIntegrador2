@@ -15,17 +15,18 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form action="">
-				<input type="text" placeholder="nombre">
-				<input type="text" placeholder="apellido">
-				<input type="number" min="18" max="50" placeholder="edad">
-				<input type="date" placeholder="nacimiento">
-				<input type="text" placeholder="nacionalidad">
-				<input type="text" placeholder="club">
-				<input type="text" placeholder="posicion">
-				<input type="text" placeholder="trayectoria">
-				<input type="text" placeholder="fisico">
-				<input type="text" placeholder="valor de Mercado">
+			<form action="/productos/crear-producto" method="post" enctype="multipart/form-data">
+				<input type="text" name="nombre" placeholder="nombre">
+				<input type="text" name="apellido" placeholder="apellido">
+				<input type="date" name="nacimiento" placeholder="nacimiento">
+				<input type="text" name="nacionalidad" placeholder="nacionalidad">
+				<input type="text" name="club" placeholder="club">
+				<input type="text" name="posicion" placeholder="posicion">
+				<input type="text" name="trayectoria" placeholder="trayectoria">
+				<input type="text" name="fisico" placeholder="fisico">
+				<input type="text" name="valor_mercado" placeholder="valor de Mercado">
+				<input type="text" name="descripcion" placeholder="descripcion"> 
+				<input type="file" name="imagen"> 
 				<input type="submit" value="guardar">
 			</form>
 
