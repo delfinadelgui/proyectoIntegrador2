@@ -27,7 +27,7 @@
 					<section class="product-box">
 						<a href="/productos/detalle/<%= jugadores[i].id %>">
 							<figure class="product-box_image">
-								<img src="<%= jugadores[i].imagen %> " alt="jugadores">
+								<img src="/images/<%= jugadores[i].imagen %>" alt="jugadores">
 							</figure>
 							<article class="product-box_data">
 								<h2><%= jugadores[i].nombre %> <%= jugadores[i].apellido %></h2>
@@ -40,6 +40,9 @@
 									</li>
 									<li>
 										<strong>Valor De Mercado:</strong><%= jugadores[i].valorDeMercado%> 
+									</li>
+									<li>
+										<strong>usuario:</strong><%= jugadores[i].User.usuario%> 
 									</li>
 								</ul></p>
 								<p>Comentarios: 5 </p>
@@ -59,12 +62,12 @@
 				<h2 class="products-title"><strong>Más buscados</strong></h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for(let i = 0; i< 4; i++) { %>
+			<% for(let i = 0; i<jugadores.length; i++) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/productos/detalle/<%= jugadores[i].id %>">
 							<figure class="product-box_image">
-								<img src="<%= jugadores[i].imagen %> " alt="cafetera moulinex">
+								<img src="/images/<%= jugadores[i].imagen %>" alt="cafetera moulinex">
 							</figure>
 							<article class="product-box_data">
 								<h2><%= jugadores[i].nombre %> <%= jugadores[i].apellido %></h2>
@@ -77,6 +80,9 @@
 									</li>
 									<li>
 										<strong>Valor De Mercado:</strong><%= jugadores[i].valorDeMercado%> 
+									</li>
+									<li>
+										<strong>usuario:</strong><%= jugadores[i].User.usuario%> 
 									</li>
 								</ul></p>
 								<p>Comentarios: 5 </p>

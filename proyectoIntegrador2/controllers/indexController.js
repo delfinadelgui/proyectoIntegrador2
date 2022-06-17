@@ -4,12 +4,13 @@ const Player = db.Player;
 const indexController = { 
     home: function (req, res){  //obj literal
         Player.findAll( {
-            model: db.User     
+            include: {
+                model: db.User, as: "User" 
+            }   
         })
         .then( (players)=> {
-           res.send(players),
             res.render('index', {jugadores: players}) 
-    })
+        })
         //ejs al nav
     },
     resultados: function(req,res){

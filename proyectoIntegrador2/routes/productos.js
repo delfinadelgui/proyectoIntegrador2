@@ -21,6 +21,7 @@ router.get('/detalle/:id', productoController.detalleProducto); //hay que poner 
 router.get('/agregar', productoController.agregarProducto); //ver esto
 router.post('/crear-producto', upload.single("imagen"), productoController.crearProducto); 
 router.get('/busqueda', productoController.busquedaProducto);
+router.get("/eliminar/:id", productoController.eliminar);
 
 
 module.exports = router; 

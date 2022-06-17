@@ -2,15 +2,13 @@
 const db = require('../database/models')
 const Player = db.Player 
 
-
 const jugadores = require ('../db/jugadores'); //para que pueda retornar la lista de jugadores que esta en la carpeta de jugadores en db
 
-
+const op = db.Sequelize.Op; 
 
 const productoController = {
     
     
-
     agregarProducto : function(req, res){
         res.render('agregar-producto'); 
     },
@@ -24,8 +22,10 @@ const productoController = {
             })
             .catch(error => console.log(error))*/
         let id = req.params.id;
-        Player.findByPk(4, { 
-            associate: "User"
+        Player.findByPk(id, { 
+            include: {
+                model: db.User, as: "User" 
+            }   
         })
         .then( player => {
             console.log(player),
@@ -35,8 +35,6 @@ const productoController = {
     },
     
     busquedaProducto: function(req,res){
-
-   
 
         res.render('buscar-resultados'); 
     },
@@ -59,8 +57,25 @@ const productoController = {
 
         })
         .then( ()=> res.redirect("/productos/agregar"))
+    },
+
+    eliminar: function(req,res){ //eliminaste un producto estando logueado y siendo tu prod 
+    
+        Player.destroy({
+                where: {
+
+                    [op.and]: [ 
+                       {
+                        id: req.params.id
+                       }, {
+                        user_id: req.session.user.id
+                       }
+                    ]
+                }
+        })
+        .then( ()=> res.redirect('/'))
+        .catch(error => console.log(error))
     }
-   
 }
 
 module.exports = productoController;

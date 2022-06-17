@@ -4,20 +4,31 @@
 <%- include('./partials/head') %> 
 <body>
 	<!-- Header -->
-<%- include('./partials/header') %> 
+	<% if(locals?.user) { %>
+		<%- include('./partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
 				
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= jugador.nombre %> <%= jugador.apellido %></h2> 
 			<p class="product-detail-description">
-				<a href="/">Editar</a>
+				<% if(locals.user != undefined){ %>  <!-- cuando tas logueado --> 
+					<% if(locals.user.id == jugador.User.id){ %> 
+						<a href="/">Editar</a>
+						<a href="/productos/eliminar/<%= jugador.id %>"> Borrar Producto</a>
+					<% } %>
+				<% } %>
+
+
 			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= jugador.imagen%> " alt="" class="product-detail-img">
+					<img src="<%= jugador.imagen%>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<strong>Nombre:</strong>	<%= jugador.nombre %> <%= jugador.apellido %> 
 						
@@ -47,6 +58,9 @@
 						<li>
 							<h3>Valor De Mercado: <%= jugador.valorDeMercado %> </h3>
 						</li>
+						<li>
+							<a href="usuarios/perfil/<%= jugador.User.id %>"><h3>Usuario: <%= jugador.User.usuario %> </h3></a>
+						</li>
 					</ul>
 				</article>
 				
@@ -54,7 +68,7 @@
 					<section class="comments">
 
 						<article>
-							<img src="<%= comentario.imagen %> " alt="">
+							<img src="<%= comentario.imagen %>" alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
@@ -62,7 +76,7 @@
 							
 						</article>
 						<article>
-							<img src="<%= comentario.imagen %> " alt="">
+							<img src="<%= comentario.imagen %>" alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
@@ -70,7 +84,7 @@
 							
 						</article>
 						<article>
-							<img src="<%= comentario.imagen %> " alt="">
+							<img src="<%= comentario.imagen %>" alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
@@ -78,7 +92,7 @@
 							
 						</article>
 						<article>
-							<img src="<%= comentario.imagen %> " alt="">
+							<img src="<%= comentario.imagen %>" alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
@@ -86,7 +100,7 @@
 							
 						</article>
 						<article>
-							<img src="<%= comentario.imagen %> " alt="">
+							<img src="<%= comentario.imagen %>" alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
