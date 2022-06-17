@@ -1,48 +1,64 @@
-module.exports = function (sequelize, dataTypes){
-   //definir un alias, es lo que permite al modelo cuando lo quiero usar en un controlador o en cuañquier parte del sistema
-    let alias = 'Player';
+module.exports = function(sequelize, DataTypes) {
+    
+    const Player = sequelize.define('Player', { //defino el alias player, y esto permite al modelo, usarlo cuando quiera y en cualquier parte del sistema  
+        // Model attributes are defined here
+            id:{
+                autoIncrement: true,
+                primaryKey:true,
+                type: DataTypes.INTEGER.UNSIGNED,
+            },
+            nombre:{
+                type: DataTypes.STRING
+            },
+            apellido:{
+                type: DataTypes.STRING
+            },
+            fecha_nacimiento:{
+                type: DataTypes.DATE
+            },
+            nacionalidad:{
+                type: DataTypes.STRING
+            },
+            club:{
+                type: DataTypes.STRING
+            },
+            posicion:{
+                type: DataTypes.STRING
+            },
+            trayectoria:{
+                type: DataTypes.STRING
+            },
+            fisico:{
+                type: DataTypes.STRING
+            },
+            fisico:{
+                type: DataTypes.STRING
+            },
+            valor_mercado:{
+                type: DataTypes.STRING
+            },
+            user_id:{
+                type: DataTypes.INTEGER.UNSIGNED
+            },
+            descripcion:{
+                type: DataTypes.STRING
+            },
+            imagen:{
+                type: DataTypes.STRING
+            },
+    }, {
+        tableName: 'players', //di la tabla no se llama en plural como el modelo, por ejemplo nuestra tabla de jugadores osea PLAYER en modelo se tiene que llamar PLAYERS LA TABLA
+        timestamps: false, //me lo devuelve solo, en la base la tabla no tiene timestamps, serian si no tiene campos createdAT y updatedAT
+        underscored: true, //le avisamos que en la db de la tabla hay guion bajo y no camelCase, por eso ponemos TRUE
+    }); //estas tres variables son parte d euna funcion
+    
+    Player.associate = function(models) {
+        models.Player.belongsTo(models.User, { foreignKey: 'user_id' });
+    }
 
-    let cols = {     //las distintas columnas y sus caracteristicas
-        id:{
-            autoIncrement: true,
-            primaryKey:true,
-            type: dataTypes.INTEGER,
-        },
-        titles:{
-            type: dataTypes.STRING
-        },
-        rating:{
-            type: dataTypes.DECIMAL
-        },
-        awards:{
-            type: dataTypes.INTEGER
-        },
-        release_date:{
-            type: dataTypes.DATE
-        },
-        lengths:{
-            type: dataTypes.INTEGER
-        },
-        genre_id:{
-            type: dataTypes.INTEGER
-        }
+    return Player;
 
-    };
-
-
-//config adicionales
-let config = {
-    tableName: 'players', //di la tabla no se llama en plural como el modelo, por ejemplo nuestra tabla de jugadores osea PLAYER en modelo se tiene que llamar PLAYERS LA TABLA
-    timestamps: false/true, //me lo devuelve solo, en la base la tabla no tiene timestamps, serian si no tiene campos createdAT y updatedAT
-    underscored: true, //le avisamos que en la base de la tabla hay guion bajo y no camelCase, por eso le ponemos TRUE SI USAMOS CAMEL CASE EN EL PROYECTO NO NECESTAMOS ESTA LINEA
-} //estas tres variables son partes de una funcion
-
-const Player = sequelize.define(alias, cols, config); //guardamos en una variable la ejecucion de un metodo
-
-//relaciones entre tablas
-return Player;
-
-}
+};
 
     
 
