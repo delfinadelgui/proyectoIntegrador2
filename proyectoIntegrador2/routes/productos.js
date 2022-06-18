@@ -22,6 +22,8 @@ router.get('/agregar', productoController.agregarProducto); //ver esto
 router.post('/crear-producto', upload.single("imagen"), productoController.crearProducto); 
 router.get('/busqueda', productoController.busquedaProducto);
 router.get("/eliminar/:id", productoController.eliminar);
+router.get('/editar/:id', productoController.editarProducto); 
+router.post('/actualizar/:id', upload.single("imagen"), productoController.actualizarProducto);
 
 
 module.exports = router; 

@@ -51,6 +51,13 @@ module.exports = function(sequelize, DataTypes) {
     
     Player.associate = function(models) {
         models.Player.belongsTo(models.User, { foreignKey: 'user_id', as: "User" });
+
+        models.Player.belongsToMany(models.User, { 
+            through: "comments",
+            as: "Comment",
+            foreignKey: "player_id",
+            timestamps: true
+        })
     }
 
     return Player;

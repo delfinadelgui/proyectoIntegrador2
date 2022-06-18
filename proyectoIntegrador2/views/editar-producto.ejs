@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %> 
+
+<body>
+	<!-- Header -->
+	<%- include('./partials/headerLogueado') %> 
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar productos</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<form action="/productos/actualizar/<%= player.id%> " method="post" enctype="multipart/form-data">
+				<input type="text" required value="<%= player.nombre%>" name="nombre" placeholder="nombre">
+				<input type="text" required value="<%= player.apellido%>" name="apellido" placeholder="apellido">
+				<input type="date" required value="<%= player.fecha_nacimiento%>" name="nacimiento" placeholder="nacimiento">
+				<input type="text" required value="<%= player.nacionalidad%>" name="nacionalidad" placeholder="nacionalidad">
+				<input type="text" required value="<%= player.club%>" name="club" placeholder="club">
+				<input type="text" required value="<%= player.posicion%>" name="posicion" placeholder="posicion">
+				<input type="text" required value="<%= player.trayectoria%>" name="trayectoria" placeholder="trayectoria">
+				<input type="text" required value="<%= player.fisico%>" name="fisico" placeholder="fisico">
+				<input type="text" required value="<%= player.valor_mercado%>" name="valor_mercado" placeholder="valor de Mercado">
+				<input type="text" required value="<%= player.descripcion%>" name="descripcion" placeholder="descripcion"> 
+				<input type="file" required name="imagen"> 
+                <img src="/images/<%= player.imagen%>" alt="<%= player.nombre%>">
+				<input type="submit" value="guardar">
+			</form>
+
+	<!-- footer -->
+	<%- include('./partials/footer') %> 
+	<!-- /footer -->
+</body>
+
+</html>

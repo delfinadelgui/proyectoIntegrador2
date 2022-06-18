@@ -16,17 +16,17 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<form action="/productos/crear-producto" method="post" enctype="multipart/form-data">
-				<input type="text" name="nombre" placeholder="nombre">
-				<input type="text" name="apellido" placeholder="apellido">
-				<input type="date" name="nacimiento" placeholder="nacimiento">
-				<input type="text" name="nacionalidad" placeholder="nacionalidad">
-				<input type="text" name="club" placeholder="club">
-				<input type="text" name="posicion" placeholder="posicion">
-				<input type="text" name="trayectoria" placeholder="trayectoria">
-				<input type="text" name="fisico" placeholder="fisico">
-				<input type="text" name="valor_mercado" placeholder="valor de Mercado">
-				<input type="text" name="descripcion" placeholder="descripcion"> 
-				<input type="file" name="imagen"> 
+				<input type="text" required name="nombre" placeholder="nombre">
+				<input type="text" required name="apellido" placeholder="apellido">
+				<input type="date" required name="nacimiento" placeholder="nacimiento">
+				<input type="text" required name="nacionalidad" placeholder="nacionalidad">
+				<input type="text" required name="club" placeholder="club">
+				<input type="text" required name="posicion" placeholder="posicion">
+				<input type="text" required name="trayectoria" placeholder="trayectoria">
+				<input type="text" required name="fisico" placeholder="fisico">
+				<input type="text" required name="valor_mercado" placeholder="valor de Mercado">
+				<input type="text" required name="descripcion" placeholder="descripcion"> 
+				<input type="file" required name="imagen"> 
 				<input type="submit" value="guardar">
 			</form>
 

@@ -38,10 +38,16 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     User.associate = (models) => {
-
         console.log(models);
 
         models.User.hasMany(models.Player, { foreignKey: "user_id" });
+
+        models.User.belongsToMany(models.Player, { 
+            through: "comments",
+            as: "Comment",
+            foreignKey: "user_id",
+            timestamps: true
+        })
 
     };
 

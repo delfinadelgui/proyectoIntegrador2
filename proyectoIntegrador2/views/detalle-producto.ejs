@@ -17,7 +17,7 @@
 			<p class="product-detail-description">
 				<% if(locals.user != undefined){ %>  <!-- cuando tas logueado --> 
 					<% if(locals.user.id == jugador.User.id){ %> 
-						<a href="/">Editar</a>
+						<a href="/productos/editar/<%= jugador.id %>">Editar</a>
 						<a href="/productos/eliminar/<%= jugador.id %>"> Borrar Producto</a>
 					<% } %>
 				<% } %>
@@ -28,17 +28,14 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= jugador.imagen%>" alt="" class="product-detail-img">
+					<img src="/images/<%= jugador.imagen%>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<strong>Nombre:</strong>	<%= jugador.nombre %> <%= jugador.apellido %> 
 						
 					</p>
 					<ul>
 						<li>
-							<h3>Edad: <%= jugador.edad %> </h3>
-						</li>
-						<li>
-							<h3>Fecha de nacimiento: <%= jugador.nacimiento %> </h3>
+							<h3>Fecha de nacimiento: <%= jugador.fecha_nacimiento %> </h3>
 						</li>
 						<li>
 							<h3>Nacionalidad: <%= jugador.nacionalidad %> </h3>
@@ -56,7 +53,7 @@
 							<h3>Apto fisico: <%= jugador.fisico %> </h3>
 						</li>
 						<li>
-							<h3>Valor De Mercado: <%= jugador.valorDeMercado %> </h3>
+							<h3>Valor De Mercado: <%= jugador.valor_mercado %> </h3>
 						</li>
 						<li>
 							<a href="usuarios/perfil/<%= jugador.User.id %>"><h3>Usuario: <%= jugador.User.usuario %> </h3></a>
@@ -66,47 +63,18 @@
 				
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-
-						<article>
-							<img src="<%= comentario.imagen %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
-								<%= comentario.comentario%> </p>
-							
-						</article>
-						<article>
-							<img src="<%= comentario.imagen %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
-								<%= comentario.comentario%> </p>
-							
-						</article>
-						<article>
-							<img src="<%= comentario.imagen %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
-								<%= comentario.comentario%> </p>
-							
-						</article>
-						<article>
-							<img src="<%= comentario.imagen %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
-								<%= comentario.comentario%> </p>
-							
-						</article>
-						<article>
-							<img src="<%= comentario.imagen %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a><%= comentario.nombreDeUsuario%></a></strong>
-								<%= comentario.comentario%> </p>
-							
-						</article>
+						<% for(let i=0; i<jugador.Comment.length; i++){ %>
+							<article>
+								<img src="/images/<%= jugador.Comment[i].imagen%>" alt="">
+								<div class="data">
+									<p class="user">
+										<strong><%= jugador.Comment[i].nombre%> <%= jugador.Comment[i].apellido%></strong>
+										<strong> <%= jugador.Comment[i].createdAt%></strong>
+									</p>
+									<strong> <%= jugador.Comment[i].comments.comment?"si":"no" %></strong>
+									<!--<= jugador.Comment[i].comments.comment%> --> 
+							</article>
+						<% } %>
 
 					</section>
 					<form class="form" action="" method="get">

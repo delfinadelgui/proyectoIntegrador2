@@ -14,22 +14,17 @@ const productoController = {
     },
 
     detalleProducto : function(req, res) {
-       //aca como voya  ahcer referencia a la variable jugadores que lo que guarda es es la variable de db que hace referencia a los models y por ende podemos usar una funcion (promesas) que es de sequelize
-        /*jugadores.findAll() //jugadores hace referecia a la variable de arriba y findAll es un metodo de modelos
-            .then ( function (jugadores){ //usamos promesas un metodo de sequelize
-                res.send(peliculas)
-                
-            })
-            .catch(error => console.log(error))*/
+
         let id = req.params.id;
         Player.findByPk(id, { 
-            include: {
-                model: db.User, as: "User" 
-            }   
+            include: [
+                {model: db.User, as: "User"},
+                {model: db.User, as: "Comment", through: { attributes: ["comment"]}, order: [["id", "DESC"]]} 
+            ]  
         })
         .then( player => {
-            console.log(player),
-            res.render('detalle-producto', {jugador: player, comentario: []});
+            //res.send(player);
+            res.render('detalle-producto', {jugador: player});
         } )
                
     },
@@ -75,6 +70,77 @@ const productoController = {
         })
         .then( ()=> res.redirect('/'))
         .catch(error => console.log(error))
+    },
+
+    editarProducto: function(req,res){
+        Player.findOne({
+            where: {
+
+                [op.and]: [ 
+                   {
+                    id: req.params.id
+                   }, {
+                    user_id: req.session.user.id
+                   }
+                ]
+            }
+        })
+        .then( (player)=> {
+            if(player) {
+                res.render('editar-producto', { player: player})
+            }else{
+                res.redirect("/productos/detalle/" + req.params.id)
+            }
+        })
+    },
+
+    actualizarProducto: function(req,res){ 
+        Player.findOne({
+            where: {
+
+                [op.and]: [ 
+                   {
+                    id: req.params.id
+                   }, {
+                    user_id: req.session.user.id
+                   }
+                ]
+            }
+        })
+        .then( (player)=> {
+            if(player){
+                Player.update({ 
+                    nombre: req.body.nombre,
+                    apellido: req.body.apellido,
+                    nacionalidad: req.body.nacionalidad,
+                    fecha_nacimiento: req.body.nacimiento,
+                    club: req.body.club,
+                    posicion: req.body.posicion,
+                    trayectoria: req.body.trayectoria,
+                    imagen: req.file.filename,
+                    fisico: req.body.fisico,
+                    valor_mercado: req.body.valor_mercado,
+                    descripcion: req.body.descripcion
+        
+                },{
+                    where: {
+                        [op.and]: [ 
+                           {
+                            id: req.params.id
+                           }, {
+                            user_id: req.session.user.id
+                           }
+                        ]
+                    }
+                })
+                .then( ()=> res.redirect("/productos/detalle/" + req.params.id))
+            }else{
+                res.redirect("/productos/detalle/" + req.params.id)
+            }
+    })
+    .catch(error => console.log(error))
+
+
     }
 }
 
