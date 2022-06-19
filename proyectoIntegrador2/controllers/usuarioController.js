@@ -1,12 +1,15 @@
 
 const db = require("../database/models");
 const User = db.User;
+const Follower = db.Follower;
 const { request } = require("express");
 const bcrypt = require("bcryptjs");
 
 const multer  = require('multer')
 
 const upload = multer({ dest: './public/images/'}) //ver
+
+const op = db.Sequelize.Op;
 
 const usuarioController = {
     usuario: function(req,res){
@@ -79,7 +82,7 @@ const usuarioController = {
     },
 
     logout: function(req, res) {
-        req.session.user = undefined;
+        req.session.destroy();
         res.clearCookie('userId');
         res.redirect('/users/login');
     },
@@ -91,6 +94,79 @@ const usuarioController = {
         }
         
         return res.render ("editar-usuario");
+    },
+    
+    perfil: function(req,res){
+        User.findByPk( req.params.id, {
+            include: [
+                {
+                    model: db.Player,
+                    as: "Player"
+                },
+                {
+                    model: db.Comment,
+                    as: "Comments"
+                },
+                {
+                    model: db.User,
+                    as: "Follower"
+                }
+            ]
+        })
+        .then( player => {
+            Follower.findOne({
+                where: {
+                    [op.and]: [ 
+                    {
+                        seguido_id: req.params.id
+                    }, {
+                        seguidor_id: req.session.user.id
+                    }
+                    ]
+                }
+            })
+            .then( seguido => { //esto es solo para ver si estas siguiendo o no; no para unfollow
+                if(seguido){
+                    res.render("perfil-usuario", { usuario: player.toJSON(), seguido:true})
+                }else{
+                    res.render("perfil-usuario", { usuario: player.toJSON(), seguido:false})
+                }
+            })
+            //res.send(player)
+            
+
+        })
+    },
+
+    seguir: function(req,res){
+        Follower.create({
+            seguido_id: req.params.id,
+            seguidor_id: req.session.user.id
+        })
+        .then( ()=> {
+            return res.redirect("/users/perfil/" + req.params.id)
+        })
+        .catch(error => console.log(error))
+
+    },
+
+    dejar: function(req,res){
+        Follower.destroy({
+            where: {
+                [op.and]: [ 
+                {
+                    seguido_id: req.params.id
+                }, {
+                    seguidor_id: req.session.user.id
+                }
+                ]
+            }
+        })
+        .then( ()=> {
+            return res.redirect("/users/perfil/" + req.params.id)
+        })
+        .catch(error => console.log(error))
+
     }
 }
 

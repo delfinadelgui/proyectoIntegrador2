@@ -26,6 +26,8 @@ router.get("/login", usuarioController.login); //localhost:3000/users/login
 router.post("/logout", usuarioController.logout); //localhost:3000/users/login
 router.post("/loguear", usuarioController.loguear);
 router.get("/editar", usuarioController.editarUser);
-//router.get("/perfil/:id", usuarioController.perfil); habria q ver lo del perfil 
+router.get("/perfil/:id", usuarioController.perfil);
+router.get("/seguir/:id", usuarioController.seguir);
+router.get("/dejarDeSeguir/:id", usuarioController.dejar);
 
 module.exports = router;

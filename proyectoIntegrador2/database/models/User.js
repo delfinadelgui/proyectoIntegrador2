@@ -40,7 +40,17 @@ module.exports = function(sequelize, DataTypes) {
     User.associate = (models) => {
         console.log(models);
 
-        models.User.hasMany(models.Player, { foreignKey: "user_id" });
+        models.User.hasMany(models.Player, { foreignKey: "user_id", as: "Player"});
+
+        models.User.hasMany(models.Comment, { foreignKey: "user_id", as: "Comments"});
+
+        models.User.belongsToMany(models.User, { 
+            through: "followers",
+            as: "Follower",
+            foreignKey: "seguido_id",
+            otherKey: "seguidor_id",
+            timestamps: false
+        })
 
         models.User.belongsToMany(models.Player, { 
             through: "comments",
