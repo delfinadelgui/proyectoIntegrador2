@@ -1,6 +1,7 @@
 //para que en los controladores podamos usar la info de db hayq ue hacer una variable que use lo de db
 const db = require('../database/models')
 const Player = db.Player 
+const Comment = db.Comment;
 
 const jugadores = require ('../db/jugadores'); //para que pueda retornar la lista de jugadores que esta en la carpeta de jugadores en db
 
@@ -24,9 +25,8 @@ const productoController = {
         })
         .then( player => {
             //res.send(player);
-            res.render('detalle-producto', {jugador: player});
+            res.render('detalle-producto', {jugador: player.toJSON()});
         } )
-               
     },
     
     busquedaProducto: function(req,res){
@@ -60,11 +60,11 @@ const productoController = {
                 where: {
 
                     [op.and]: [ 
-                       {
+                    {
                         id: req.params.id
-                       }, {
+                    }, {
                         user_id: req.session.user.id
-                       }
+                    }
                     ]
                 }
         })
@@ -77,11 +77,11 @@ const productoController = {
             where: {
 
                 [op.and]: [ 
-                   {
+                {
                     id: req.params.id
-                   }, {
+                }, {
                     user_id: req.session.user.id
-                   }
+                }
                 ]
             }
         })
@@ -99,11 +99,11 @@ const productoController = {
             where: {
 
                 [op.and]: [ 
-                   {
+                {
                     id: req.params.id
-                   }, {
+                }, {
                     user_id: req.session.user.id
-                   }
+                }
                 ]
             }
         })
@@ -125,11 +125,11 @@ const productoController = {
                 },{
                     where: {
                         [op.and]: [ 
-                           {
+                        {
                             id: req.params.id
-                           }, {
+                        }, {
                             user_id: req.session.user.id
-                           }
+                        }
                         ]
                     }
                 })
@@ -139,6 +139,22 @@ const productoController = {
             }
     })
     .catch(error => console.log(error))
+
+},
+
+    comentarios: function(req,res){
+
+        if(req.session.user == undefined){
+        res.redirect("/users/login")
+        }else{
+        Comment.create({
+            player_id: req.params.id,
+            user_id: req.session.user.id,
+            comment: req.body.comentario
+        })
+        .then(()=> res.redirect("/productos/detalle/" + req.params.id))
+        .catch(error => console.log(error))
+        }
 
 
     }

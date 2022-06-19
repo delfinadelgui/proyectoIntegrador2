@@ -35,7 +35,10 @@
 				</ul>
 	
 				<ul class="right-navbar">
-					<% if(user != undefined) { %>
+					<% if(locals.user != undefined) { %>
+						<li>
+							<a href="/users/perfil/<%= user.id%>">Mi perfil</a>
+						</li>
 						<li>
 							<form action="/users/logout" method="post">
 								<button class="logout" type="submit">
