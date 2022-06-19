@@ -74,8 +74,16 @@ const usuarioController = {
                 res.cookie('userId',user.id,{maxAge: 1000*60*100} )
             }
 
+
+            
+               // seguido_id: req.params.id,
+               // seguidor_id: req.session.user.id
+           
+                //return res.redirect("/users/perfil/" + req.params.id)
+            
+
             req.session.user = user
-            return res.redirect("/users/editar")
+            return res.redirect("/users/perfil/" + req.session.user.id)
         })
 
         

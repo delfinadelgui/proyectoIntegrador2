@@ -45,7 +45,7 @@
 										<strong>usuario:</strong><%= jugadores[i].User.usuario%> 
 									</li>
 								</ul></p>
-								<p>Comentarios: 5 </p>
+								<p>Comentarios: 5  </p>
 							</article>
 						</a>
 					</section>
@@ -62,7 +62,7 @@
 				<h2 class="products-title"><strong>Más buscados</strong></h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for(let i = 0; i<jugadores.length; i++) { %>
+			<% for(let i = 0; i<4; i++) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/productos/detalle/<%= jugadores[i].id %>">
