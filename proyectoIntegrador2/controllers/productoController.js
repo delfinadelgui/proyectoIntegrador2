@@ -2,6 +2,7 @@
 const db = require('../database/models')
 const Player = db.Player 
 const Comment = db.Comment;
+const User = db.User;
 
 const jugadores = require ('../db/jugadores'); //para que pueda retornar la lista de jugadores que esta en la carpeta de jugadores en db
 
@@ -31,8 +32,23 @@ const productoController = {
     
     busquedaProducto: function(req,res){
 
-        res.render('buscar-resultados'); 
+        const search = req.query.search;
+
+        Player.findAll({
+            include: {model: User },
+            where: {
+                [op.or]: [
+                    {nombre: { [op.like]: `%${ search }%` }},
+                    {descripcion: { [op.like]: `%${ search }%` }},
+                ]
+            }
+        })
+        .then(data => {
+            res.render('buscar-resultados', {jugadores:data}); 
+        })
+
     },
+    
 
     crearProducto: function(req,res){
 
