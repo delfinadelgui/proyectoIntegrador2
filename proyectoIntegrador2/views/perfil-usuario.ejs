@@ -5,10 +5,14 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerLogueado') %> 
+	<% if(locals?.user) { %>
+        <%- include('./partials/headerLogueado') %>
+    <% } else { %>
+        <%- include('./partials/header') %>
+<% } %> 
 	<!-- /Header -->
 
-	
+
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
@@ -47,6 +51,10 @@
 		</div>
 	</section>
 
+
+    <div class="container products-wrapper">
+		<div class="row">	
+
     <% for(let i = 0; i<usuario.Player.length; i++) { %>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
@@ -74,6 +82,10 @@
         </div>
     <% } %>
 
+        </div>
+    </div>
+
+        
 	<!-- footer -->
 	<%- include('./partials/footer') %> 
 	<!-- /footer -->

@@ -5,7 +5,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerLogueado') %> 
+	<% if(locals?.user) { %>
+		<%- include('./partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partials/header') %>
+<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -16,18 +20,28 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> <br> <br>
-				<form action="/users/registrar" method="get">
-					<input  name="nombre" type="text" placeholder="nombre">
-					<input  name="apellido" type="text" placeholder="apellido">
-					<input  name="email" type="text" placeholder="email">
-					<input  name="trabajo" type="text" placeholder="trabajo">
-					<input  name="org" type="text" placeholder="organizacion">
-					<input name="contraseña" type="password" placeholder="contraseña">
-					<input name="actualizar" type="submit" value="actualizar">
+				<form action="/users/editar" enctype="multipart/form-data" method="post">
+					<input value="<%=locals.user.nombre %>" required name="nombre" type="text" placeholder="nombre">
+					<input value="<%= locals.user.apellido %>" required name="apellido" type="text" placeholder="apellido">
+					<input value="<%= locals.user.usuario %>" required name="usuario" type="text" placeholder="usuario">
+					<input value="<%= locals.user.email %>" required name="email" type="email" placeholder="email">
+					<input value="<%= locals.user.dni %>" required name="dni" type="number" placeholder="nro de documento">
+					<input value="<%= locals.user.fecha_nacimiento %>" required name="fecha_nacimiento" type="date" placeholder="fecha de nacimiento">
+					<input name="foto" type="file">
+					<input type="submit">
 				</form>
 			</h2>
+
+			<% if(error) {%>
+				<%= message %>
+			<% } %> 
+			<% if(ok) {%>
+				Se actualizo correctamente
+			<% } %> 
+		
 		</div>
 	</div>
+
 
 	<!-- footer -->
 	<%- include('./partials/footer') %> 

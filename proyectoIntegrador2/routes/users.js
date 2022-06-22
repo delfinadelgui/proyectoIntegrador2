@@ -29,5 +29,6 @@ router.get("/editar", usuarioController.editarUser);
 router.get("/perfil/:id", usuarioController.perfil);
 router.get("/seguir/:id", usuarioController.seguir);
 router.get("/dejarDeSeguir/:id", usuarioController.dejar);
+router.post("/editar", upload.single("foto"), usuarioController.actualizarUser);
 
 module.exports = router;

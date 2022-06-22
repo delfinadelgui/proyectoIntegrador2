@@ -101,7 +101,36 @@ const usuarioController = {
             return res.redirect('/users/login');
         }
         
-        return res.render ("editar-usuario");
+
+        return res.render ("editar-usuario", {error: false, ok: false});
+
+    },
+
+    actualizarUser: function(req, res){
+
+        User.update({
+            nombre: req.body.nombre, 
+            apellido: req.body.apellido,
+            usuario: req.body.usuario,
+            fecha_nacimiento: req.body.fecha_nacimiento,
+            dni: req.body.dni,
+            email: req.body.email,
+            imagen: req.file.filename,
+        },
+        {
+            where: { 
+                id: req.session.user.id
+            }
+        }
+        )
+        .then(resultado => {
+            return res.render ("editar-usuario", {error: false, ok: true});
+        }) 
+        .catch(error => {
+            console.log(JSON.stringify(error.errors[0].message))
+            return res.render ("editar-usuario", {error: true, message:error.errors[0].message, ok: false});
+        })
+
     },
     
     perfil: function(req,res){
@@ -122,6 +151,9 @@ const usuarioController = {
             ]
         })
         .then( player => {
+            if(req.session.user == undefined){
+                    return res.render("perfil-usuario", { usuario: player.toJSON(), seguido:false})
+            }
             Follower.findOne({
                 where: {
                     [op.and]: [ 

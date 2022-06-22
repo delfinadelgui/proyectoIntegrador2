@@ -35,7 +35,7 @@ const productoController = {
         const search = req.query.search;
 
         Player.findAll({
-            include: {model: User },
+            include: {model: User, as: "User" },
             where: {
                 [op.or]: [
                     {nombre: { [op.like]: `%${ search }%` }},

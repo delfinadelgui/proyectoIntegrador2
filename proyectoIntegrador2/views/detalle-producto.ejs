@@ -71,7 +71,7 @@
 								<img src="/images/<%= jugador.Comment[i].imagen%>" alt="">
 								<div class="data">
 									<p class="user">
-										<a href=""><strong><%= jugador.Comment[i].nombre%> <%= jugador.Comment[i].apellido%></strong></a>
+										<a href="/users/perfil/<%= jugador.Comment[i].id%>"><strong><%= jugador.Comment[i].nombre%> <%= jugador.Comment[i].apellido%></strong></a>
 										<strong> <%= jugador.Comment[i].comments.comment %></strong>
 										<strong> <%= jugador.Comment[i].createdAt%></strong>
 									</p>
