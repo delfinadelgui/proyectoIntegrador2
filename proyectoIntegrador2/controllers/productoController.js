@@ -161,13 +161,14 @@ const productoController = {
     comentarios: function(req,res){
 
         if(req.session.user == undefined){
-        res.redirect("/users/login")
-        }else{
-        Comment.create({
-            player_id: req.params.id,
-            user_id: req.session.user.id,
-            comment: req.body.comentario
-        })
+            res.redirect("/users/login")
+        }
+        else{
+            Comment.create({
+                player_id: req.params.id,
+                user_id: req.session.user.id,
+                comment: req.body.comentario
+             })
         .then(()=> res.redirect("/productos/detalle/" + req.params.id))
         .catch(error => console.log(error))
         }
