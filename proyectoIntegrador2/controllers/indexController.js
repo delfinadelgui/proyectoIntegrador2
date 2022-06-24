@@ -3,10 +3,10 @@ const Player = db.Player;
 
 const indexController = { 
     home: function (req, res){  //obj literal
-        Player.findAll( {
-            include: {
-                model: db.User, as: "User" 
-            }   
+        db.Player.findAll({
+            
+              include : [{association: "User"}]
+              
         })
         .then( (players)=> {
             res.render('index', {jugadores: players}) 
